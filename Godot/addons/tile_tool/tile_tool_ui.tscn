@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bukvv8q5y1lhq"]
+
+[ext_resource type="Script" uid="uid://dnmm311rqbhtk" path="res://addons/tile_tool/TileToolUI.cs" id="1_yr487"]
+
+[node name="TileToolUi" type="Control" unique_id=710208308 node_paths=PackedStringArray("initButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yr487")
+initButton = NodePath("Init")
+
+[node name="Init" type="Button" parent="." unique_id=110448290]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Init"
