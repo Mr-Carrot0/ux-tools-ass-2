@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class TileToolUI : Control
+public partial class ExampleToolUI : Control
 {
     public ExampleTool exampleTool;
 

@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://y7qogghux35q"]
 
+[ext_resource type="Script" uid="uid://cyp7hj037sfoj" path="res://scripts/simple_tool_a.cs" id="1_vwhpf"]
+[ext_resource type="Script" uid="uid://ud30palv7pc4" path="res://scripts/simple_tool_b.cs" id="2_bxvym"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xbhkt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_86cne"]
+
 [node name="SimpleToolScene" type="Node3D" unique_id=1836042997]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1992501115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4044607, 0, 0)
+mesh = SubResource("BoxMesh_xbhkt")
+script = ExtResource("1_vwhpf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=871213887]
+transform = Transform3D(-0.19781387, 0, 0.9802395, 0, 1, 0, -0.9802395, 0, -0.19781387, 0, 0, 2.2578588)
+mesh = SubResource("BoxMesh_86cne")
+script = ExtResource("2_bxvym")

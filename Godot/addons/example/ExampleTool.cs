@@ -6,19 +6,16 @@ using Godot;
 [Tool]
 public partial class ExampleTool : EditorPlugin
 {
-	[ExportToolButton("Button")]
-	public Callable InitToolButton => Callable.From(UseButton);
-
 	private EditorDock dock;
 	private Node activeRoot;
-	private TileToolUI dockUI;
+	private ExampleToolUI dockUI;
 
 	public override void _EnterTree()
 	{
 		dock = new EditorDock();
-		dock.Title = "TileTool";
+		dock.Title = "ExampleTool";
 		dock.DefaultSlot = EditorDock.DockSlot.RightUl;
-		dockUI = GD.Load<PackedScene>("res://addons/example/example_tool_ui.tscn").Instantiate<TileToolUI>();
+		dockUI = GD.Load<PackedScene>("res://addons/example/example_tool_ui.tscn").Instantiate<ExampleToolUI>();
 		dockUI.exampleTool = this;
 		dock.AddChild(dockUI);
 		AddDock(dock);
@@ -34,11 +31,13 @@ public partial class ExampleTool : EditorPlugin
 
 	public void UseButton()
 	{
-
-		activeRoot = EditorInterface.Singleton.GetEditedSceneRoot();
-
-		// Do something. 
-	}
-
-
+		var activeRoot = EditorInterface.Singleton.GetEditedSceneRoot();
+        if (activeRoot != null)
+		{
+			var cube = new MeshInstance3D();
+			cube.Mesh = new BoxMesh();
+			activeRoot.AddChild(cube);
+			cube.Owner = activeRoot;
+		}
+    }
 }
