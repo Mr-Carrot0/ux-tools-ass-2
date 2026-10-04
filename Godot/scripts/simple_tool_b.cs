@@ -11,4 +11,3 @@ public partial class simple_tool_b : Node3D
         RotateY(10);
     }
 }
-

@@ -16,14 +16,13 @@ public partial class TileTool : EditorPlugin
 	public string tileFolderPath = "tiles/demo/";
 
 	public Vector2I gridSize = new Vector2I(10, 10);
-
 	private bool[,] primaryBlockGrid;
 	private Node3D[,] meshGrid;
 
-	Dictionary<string, string> fileReference = new Dictionary<string, string>();
+	Dictionary<string, string> fileReference = [];
 
-	Dictionary<byte, int> tileRotation = new Dictionary<byte, int>
-	{
+	Dictionary<byte, int> tileRotation = new()
+    {
 		{ 0, 0 },
 		{ 1, 0 }, { 2, 90 }, { 4, 180 }, { 8, 270 },
 		{ 3, 90 }, { 6, 180 }, { 9, 0 }, { 12, 270 },
@@ -32,8 +31,8 @@ public partial class TileTool : EditorPlugin
 		{ 15, 0 },
 	};
 
-	Dictionary<byte, string> tileMapDictionary = new Dictionary<byte, string>
-	{
+	Dictionary<byte, string> tileMapDictionary = new()
+    {
 		{ 0, "0" },
 		{ 1, "1" }, { 2, "1" }, { 4, "1" }, { 8, "1" },
 		{ 3, "3" }, { 6, "3" }, { 9, "3" }, { 12, "3" },
@@ -51,22 +50,22 @@ public partial class TileTool : EditorPlugin
 		NorthWest = 1 << 3,
 	}
 
-	public NeighborBitMask[] bitmasks = new NeighborBitMask[]
-	{
-		NeighborBitMask.NorthEast,
+	public NeighborBitMask[] bitmasks =
+    [
+        NeighborBitMask.NorthEast,
 		NeighborBitMask.SouthEast,
 		NeighborBitMask.SouthWest,
 		NeighborBitMask.NorthWest,
-	};
+	];
 
 	// Primary grid offset.
-	public Vector2I[] NeighborCoords = new Vector2I[]
-	{
-		new Vector2I(0, 0),
-		new Vector2I(0, -1),
-		new Vector2I(-1, -1),
-		new Vector2I(-1, 0),
-	};
+	public Vector2I[] NeighborCoords =
+    [
+        new (0, 0),
+		new (0, -1),
+		new (-1, -1),
+		new (-1, 0),
+	];
 
 	bool init = false;
 	Vector3 pointerGridPos = Vector3.Zero;
@@ -76,10 +75,12 @@ public partial class TileTool : EditorPlugin
 
 	public override void _EnterTree()
 	{
-		dock = new EditorDock();
-		dock.Title = "TileTool";
-		dock.DefaultSlot = EditorDock.DockSlot.RightUl;
-		dockUI = GD.Load<PackedScene>("res://addons/tile_tool/tile_tool_ui.tscn").Instantiate<TileToolUI>();
+        dock = new EditorDock
+        {
+            Title = "TileTool",
+            DefaultSlot = EditorDock.DockSlot.RightUl
+        };
+        dockUI = GD.Load<PackedScene>("res://addons/tile_tool/tile_tool_ui.tscn").Instantiate<TileToolUI>();
 		dockUI.tileTool = this;
 		dock.AddChild(dockUI);
 		AddDock(dock);

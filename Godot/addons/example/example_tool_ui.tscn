@@ -1,19 +1,133 @@
 [gd_scene format=3 uid="uid://bnmv5bhdutoqt"]
 
 [ext_resource type="Script" uid="uid://g3kvkfrfklvn" path="res://addons/example/ExampleToolUI.cs" id="1_8vh0t"]
+[ext_resource type="Texture2D" uid="uid://bbe8norbbdoqq" path="res://addons/example/assets/Load.svg" id="2_e6ppf"]
 
-[node name="TileToolUi" type="Control" unique_id=710208308 node_paths=PackedStringArray("exampleButton")]
+[node name="TileToolUi" type="Control" unique_id=710208308 node_paths=PackedStringArray("fileDialog", "filePathEdit", "BrowseButton")]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vh0t")
+fileDialog = NodePath("EditorFileDialog")
+filePathEdit = NodePath("VBoxContainer/HBoxContainer/path")
+BrowseButton = NodePath("VBoxContainer/HBoxContainer/browse")
+
+[node name="EditorFileDialog" type="EditorFileDialog" parent="." unique_id=1653060359]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 4
+ok_button_text = "Select"
+dialog_hide_on_ok = true
+file_mode = 0
+filters = PackedStringArray("*.tscn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1242122658]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8vh0t")
-exampleButton = NodePath("Button")
 
-[node name="Button" type="Button" parent="." unique_id=110448290]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Do Something"
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1534814408]
+custom_minimum_size = Vector2(200, 17.36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1468705633]
+layout_mode = 2
+text = "Prefab: "
+
+[node name="path" type="LineEdit" parent="VBoxContainer/HBoxContainer" unique_id=115169752]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://path/to/prefab"
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="browse" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=988092800]
+layout_mode = 2
+text = "browse"
+icon = ExtResource("2_e6ppf")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=199581435]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer3" unique_id=1077625859]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "use Regex"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1879740756]
+custom_minimum_size = Vector2(200, 17.36)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=310362454]
+layout_mode = 2
+text = "Replace Node(s) with name:"
+
+[node name="path" type="LineEdit" parent="VBoxContainer/HBoxContainer2" unique_id=1489529296]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "NodeName"
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=1072640845]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1658119755]
+layout_mode = 2
+text = "Retain Properies:"
+
+[node name="Flow" type="HFlowContainer" parent="VBoxContainer/VBoxContainer2" unique_id=456944889]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=155587671]
+layout_mode = 2
+button_pressed = true
+text = "Position"
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=247156595]
+layout_mode = 2
+button_pressed = true
+text = "Rotation"
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=521835335]
+layout_mode = 2
+button_pressed = true
+text = "Scale"
+
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=734292549]
+layout_mode = 2
+button_pressed = true
+text = "Name"
+
+[node name="CheckBox5" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=939742550]
+layout_mode = 2
+button_pressed = true
+text = "hirarchy position"
+
+[node name="CheckBox6" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=1359212073]
+layout_mode = 2
+button_pressed = true
+text = "collition layers/mask"
+
+[node name="CheckBox7" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=449468983]
+layout_mode = 2
+button_pressed = true
+text = "visibility"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=2053724785]
+layout_mode = 2
+
+[node name="Replace" type="Button" parent="VBoxContainer" unique_id=324607077]
+layout_mode = 2
+text = "Replace"
+
+[node name="Replace All" type="Button" parent="VBoxContainer" unique_id=2028908463]
+layout_mode = 2
+text = "Replace ALL"

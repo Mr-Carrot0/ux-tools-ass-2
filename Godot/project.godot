@@ -25,7 +25,7 @@ project/assembly_name="TileTool"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/example/plugin.cfg")
+enabled=PackedStringArray("res://addons/example/plugin.cfg", "res://addons/kenyoni/plugin_reloader/plugin.cfg")
 
 [physics]
 

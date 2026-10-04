@@ -4,18 +4,18 @@ using System;
 [Tool]
 public partial class TileToolUI : Control
 {
-    public TileTool tileTool;
+	public TileTool tileTool;
 
-    [Export]
-    Button initButton;
+	[Export]
+	Button initButton;
 
-    public override void _EnterTree()
-    {
-        initButton.Pressed += Init;
-    }
+	public override void _EnterTree()
+	{
+		initButton.Pressed += Init;
+	}
 
 	public void Init(){
-        tileTool.Init();
-    }
+		tileTool.Init();
+	}
 
 }
