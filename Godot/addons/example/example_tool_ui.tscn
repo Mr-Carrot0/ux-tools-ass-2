@@ -86,37 +86,37 @@ text = "Retain Properies:"
 [node name="Flow" type="HFlowContainer" parent="VBoxContainer/VBoxContainer2" unique_id=456944889]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=155587671]
+[node name="pos" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=155587671]
 layout_mode = 2
 button_pressed = true
 text = "Position"
 
-[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=247156595]
+[node name="rot" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=247156595]
 layout_mode = 2
 button_pressed = true
 text = "Rotation"
 
-[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=521835335]
+[node name="scale" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=521835335]
 layout_mode = 2
 button_pressed = true
 text = "Scale"
 
-[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=734292549]
+[node name="Name" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=734292549]
 layout_mode = 2
 button_pressed = true
 text = "Name"
 
-[node name="CheckBox5" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=939742550]
+[node name="hirarchy" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=939742550]
 layout_mode = 2
 button_pressed = true
 text = "hirarchy position"
 
-[node name="CheckBox6" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=1359212073]
+[node name="collission" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=1359212073]
 layout_mode = 2
 button_pressed = true
 text = "collition layers/mask"
 
-[node name="CheckBox7" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=449468983]
+[node name="vis" type="CheckBox" parent="VBoxContainer/VBoxContainer2/Flow" unique_id=449468983]
 layout_mode = 2
 button_pressed = true
 text = "visibility"
